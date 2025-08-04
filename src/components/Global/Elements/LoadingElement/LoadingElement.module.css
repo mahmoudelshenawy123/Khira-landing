@@ -1,0 +1,17 @@
+/* .loading__wrapper{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0 ;
+    height: 100vh;
+    width: 100%;
+    background-color:white;
+    display:grid;
+    place-items: center;
+    z-index: 110000;
+} */
+.loading__img{
+    width: 25px;
+    height: 25px;
+}

@@ -1,0 +1,50 @@
+/* .address__wrapper{
+
+} */
+.address__title{
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+/* .address-links-wrappper{
+
+} */
+.address-links__title-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.address-links__title{
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 0px;
+    font-family: 'RobotoBold';
+}
+.address-links__title-link{
+    font-size: 14px;
+    color: var(--text-color);
+}
+.address-links__title-link:hover{
+    color: var(--text-color);
+}
+/* .address-links__content-wrapper{
+
+} */
+.address-links__content-title{
+    font-size: 16px;
+    font-style: italic;
+    color: var(--text-color);
+}
+.address-links__content-list{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.address-links__content-list li{
+    font-size: 16px;
+    font-style: italic;
+    color: var(--text-color);
+}

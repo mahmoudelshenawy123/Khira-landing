@@ -1,0 +1,52 @@
+
+.payment-form {
+    /* border: #f6f9fc solid 1px; */
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 20px 0;
+    /* box-shadow: 0 30px 50px -20px rgb(50 50 93 / 25%),
+        0 30px 60px -30px rgb(0 0 0 / 30%); */
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    /* align-items: center; */
+}
+.header-title{
+    color: var(--text-color);
+    font-size: 32px;
+    font-family: 'RobotoBold';
+    text-align: center;
+}
+.messages {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
+    display: none; /* hide initially, then show once the first message arrives */
+    background-color: #0a253c;
+    color: #00d924;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: var(--radius);
+    font-size: 0.7em;
+}
+.submit{
+    color: var(--main-background-color);
+    /* margin-right: 20px; */
+    width: 170px;
+    height:40px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background-color:var(--text-color);
+    width: 100%;
+    margin-top: 20px;
+}
+.payment-message{
+    color: red;
+    font-family:'RobotoMedium'
+}
+@media (max-width:768px) {
+    .payment-form{
+        width: 100%;
+    }
+}

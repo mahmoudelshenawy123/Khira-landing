@@ -1,0 +1,163 @@
+:root{
+  --main-color:#B68A35;
+  --transition:all .3s linear;
+  --main-background-color:#ffffff;
+  --secondary-background-color:#fafafa;
+  --text-color:#000000;
+}
+.dark-mode{
+  --main-background-color:#202020;
+  --secondary-background-color:#312f2f;
+  --secondary-background-color:#2f2e2e;
+  --text-color:#ffffff;
+}
+@font-face {
+  font-family: RobotoLight;
+  src: url(assets/fonts/Cairo/Cairo-Light.ttf);
+}
+@font-face {
+  font-family: RobotoRegular;
+  src: url(assets/fonts/Cairo/Cairo-Regular.ttf);
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url(assets/fonts/Cairo/Cairo-Bold.ttf);
+}
+@font-face {
+  font-family: RobotoBlack;
+  src: url(assets/fonts/Cairo/Cairo-Black.ttf);
+}
+@font-face {
+  font-family: RobotoMedium;
+  src: url(assets/fonts/Cairo/Cairo-Medium.ttf);
+}
+htmL{
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+}
+body{
+  position: relative;
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
+  margin: 0;
+  padding: 0;
+  background-color:var(--main-background-color);
+  font-family:'RobotoLight';
+}
+*
+button{
+  border: 0 !important;
+  outline: 0 !important;
+  background-color: transparent;
+}
+ul{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+a{
+  text-decoration:none;
+}
+p{
+  margin: 0;
+}
+html *{
+  transition:var(--transition);
+}
+input{
+  outline: none
+}
+#Path_3312{
+  fill: White!important;
+}
+
+/* ::-webkit-scrollbar{
+  width: 14px;
+}
+::-webkit-scrollbar-track{
+  background: #dde1e5; 
+  overflow:hidden
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(0deg, rgb(250, 251, 191) 12%, rgba(182,138,53,1) 77%);
+}
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(0deg, rgb(250, 251, 191) 20%, rgba(182,138,53,1) 77%);
+} */
+.form-control ,.form-control:focus ,.form-control:focus-visible ,.form-select:focus{
+  box-shadow: none;
+}
+.form-select:focus{
+  border-color: black;
+}
+.not-allowed{
+  cursor:not-allowed!important;
+  pointer-events: initial!important; 
+}
+.modal__form-input-error-message{
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+.modal__form-input--error{
+  border-color:red!important
+}
+.modal__form-input--error::placeholder{
+  color: red;
+  font-weight: 0;
+  font-size:14px
+}
+.modal__form-check-error-message{
+  color: red;
+}
+.direction-rtl{
+  direction: rtl;
+}
+body[dir='rtl'] select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 1%;
+  background-position-y: 50%;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 99%;
+  background-position-y: 50%;
+}
+.app{
+  overflow-x: hidden;
+} 
+body[dir='rtl'] p ,
+body[dir='rtl'] h1 ,
+body[dir='rtl'] h2 ,
+body[dir='rtl'] h3 ,
+body[dir='rtl'] h4 ,
+body[dir='rtl'] h5 ,
+body[dir='rtl'] h6 ,
+body[dir='rtl'] span, 
+body[dir='rtl'] a ,
+body[dir='rtl'] button 
+{
+  letter-spacing: 0;
+}
+.swiper{
+  direction: ltr;
+}
+@media (min-width: 1400px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+    max-width: 1170px;
+  }
+  .container-fluid{
+    --bs-gutter-x: 5.5rem;
+  }
+}
+@media (max-width: 768px){
+  htmL{
+    overflow-x: hidden;
+  }
+}

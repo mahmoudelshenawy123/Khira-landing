@@ -1,0 +1,25 @@
+.auth-header{
+    padding: 30px 0;
+    background-color: var(--secondary-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 40px;
+    font-family:'RobotoBold'
+}
+.auth-header__icon{
+    width: 10.5px;
+    height: 10.5px;
+}
+.auth-header__icon path{
+    fill: var(--text-color);
+}
+@media (max-width:991px) {
+    .auth-header{
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+}

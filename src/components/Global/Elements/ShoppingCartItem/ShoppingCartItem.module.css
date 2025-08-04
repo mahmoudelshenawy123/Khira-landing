@@ -1,0 +1,104 @@
+.cart-item{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    border-bottom: .5px solid #d6d6d6;
+    padding: 20px ;
+    padding-left: 0;
+    transition: var(--transition);
+    position: relative;
+}
+body[dir='rtl'] .cart-item{
+    padding-left: initial;
+    padding-right: 0;
+}
+.cart-item:hover{
+    background-color: #FAFAFA;
+}
+.cart-item--deleting-loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: .6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: wait;
+}
+.cart-item__img{
+    width: 70px;
+    height: 70px;
+}
+.cart-item__content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.cart-item__content-title{
+    color: var(--text-color);
+    font-size:16px;
+    font-family: 'RobotoBold';
+    margin: 0;
+}
+
+.cart-item__content-size{
+    color: var(--text-color);
+    font-size:14px;
+    font-family: 'RobotoLight';
+    margin: 0;
+}
+.cart-item__content-quantity{
+    font-size: 14px;
+    color: var(--text-color);
+    font-family:'RobtoMedium';
+    margin: 0;
+}
+/* .cart-item__delete-button{
+    margin-left: auto;
+}
+body[dir='rtl'] .cart-item__delete-button{
+    margin-left: initial;
+    margin-right: auto;
+} */
+.cart-item__delete-button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+body[dir='rtl'] .cart-item__delete-button{
+    right: initial;
+    left: 5px;
+}
+.cart-item__delete-img{
+    width: 20px;
+    height: 20px;
+    transform:translateX(100%);
+    opacity: 0;
+    transition: var(--transition)
+}
+body[dir='rtl'] .cart-item__delete-img{
+    transform: translateX(-100%) !important;;
+}
+.cart-item:hover .cart-item__delete-img{
+    transform: translateX(0%) !important;
+    opacity: 1;
+}
+.cart-item:hover .cart-item__content-title ,.cart-item:hover .cart-item__content-size ,.cart-item:hover .cart-item__content-quantity{
+    color: #000000;
+}
+@media (max-width:500px) {
+    .cart-item__delete-button{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    body[dir='rtl'] .cart-item__delete-button{
+        right: initial;
+        left: 5px;
+    }
+}

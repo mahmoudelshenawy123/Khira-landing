@@ -1,0 +1,13 @@
+.cart__accordion-wrapper .accordion-button{
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+    color:var(--text-color)!important;
+    text-decoration: underline;
+}
+.cart__accordion-wrapper .accordion-button::after{
+    display: none;
+}
+.accordion-body{
+    background-color: var(--main-background-color);
+}

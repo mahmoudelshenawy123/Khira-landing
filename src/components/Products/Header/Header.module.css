@@ -1,0 +1,19 @@
+.header-slider{
+    height: 100vh
+}
+.header-slider__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+@media (max-width:600px) {
+    .header-slider{
+        height: fit-content
+    }
+    .header-slider__img{
+        height: initial;
+        max-height: 100%;
+        aspect-ratio: 1;
+    }
+}

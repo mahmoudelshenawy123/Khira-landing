@@ -1,0 +1,35 @@
+.descrption{
+    margin: 50px 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.descrption__title{
+    font-size: 24px;
+    font-family: 'RobotoBold';
+    margin-bottom:0px;
+    width: 50%;
+    text-align: center;
+    color: var(--text-color);
+    line-height: 33px;
+}
+
+@media (max-width:991px) {
+    .descrption__title{
+        width:90%;
+        line-height: 33px;
+    }
+}
+@media (max-width:568px) {
+    .descrption__title{
+        width: 90%;
+        line-height: 30px;
+        font-size:20px
+    }
+}
+@media (max-width:600px) {
+    .descrption{
+        display: none;
+    }
+}

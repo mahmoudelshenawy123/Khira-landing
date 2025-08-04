@@ -1,0 +1,43 @@
+
+.add-item__title{
+    font-size: 24px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+
+}
+.add-item__input-wrapper{
+    margin-bottom: 25px;
+}
+.add-item__input-label{
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+.add-item__input{
+    width: 100%;
+    border: 1px solid #e1e1e1;
+    padding: 0 15px;
+    height: 35px;
+}
+.add-item__input-label--span{
+    font-family: 'RobotoBold';
+}
+.add-item__input-error{
+    font-size: 14px;
+    color: red;
+    margin-bottom: 4px;
+    font-family: 'RobotoLight';
+}
+.add-item__submit-button{
+    width: 140px;
+    height: 35px;
+    background-color:var(--text-color);
+    color: var(--main-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:12px;
+}
+.add-item__submit-button:hover{
+    opacity: .7;
+}

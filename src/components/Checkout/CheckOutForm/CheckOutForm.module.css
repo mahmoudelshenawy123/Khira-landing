@@ -1,0 +1,13 @@
+.show-address__wrapper{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.show-address__input{
+    width: 12px;
+    height: 12px;
+}
+.show-address__label{
+    font-size: 16px;
+    color: var(--text-color);
+}

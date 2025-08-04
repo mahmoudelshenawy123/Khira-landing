@@ -1,0 +1,111 @@
+.contact-us{
+    margin: 0px 0 20px;
+}
+.contact-us__bread-crumb{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.contact-us__bread-crumb-link{
+    color: #888888;
+    font-size: 14px;
+}
+.contact-us__bread-crumb-icon{
+    width: 15px;
+}
+.contact-us__bread-crumb-text{
+    color:#888888;
+    font-size:14px;
+    font-weight:bold;
+}
+.contact-us__form{
+    margin-top: 20px;
+}
+.contact-us__form-input-wrapper{
+    display: flex;
+    flex-direction:column;
+    margin-bottom: 20px;
+}
+.contact-us__form-input-label{
+    font-size:14px;
+    color: var(--text-color);
+}
+.contact-us__form-input{
+    width: 100%;
+    border: 1px solid rgba(225,225,225,1);
+    height: 40px;
+    padding: 0 20px;
+}
+.contact-us__form-input--textarea{
+    height: 300px;
+    padding: 20px;
+}
+.contact-us__form-submit-button-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.contact-us__form-submit-button{
+    font-size: 14px;
+    background-color: var(--text-color);
+    color: var(--main-background-color);
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 40px;
+    transition: var(--transition);
+}
+.contact-us__form-submit-button:hover{
+    opacity: .7;
+}
+.contact-us__form-description{
+    color: #7A7A7A;
+    font-size:14px;
+    display: flex;
+    gap: 4px;
+}
+.contact-us__form-mail-link{
+    color:#7A7A7A;
+    font-family: 'RobotoBold';
+}
+.contact-us__form-mail-link:hover{
+    color:#7A7A7A;
+}
+.contact-us__form-input--error{
+    color: red;
+    font-size: 14px;
+    margin-top: 2px;
+}
+.contact-us__form-submit-message{
+    width: 98%;
+    margin: auto;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    padding: 15px 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.contact-us__form-submit-message--warning{
+    border-color: #ffb900;
+}
+.contact-us__form-submit-message--success{
+    border-color: #46b450;
+}
+.contact-us__form-submit-message--error{
+    border-color: rgb(210, 15, 15);
+}
+@media (max-width:500px) {
+    .contact-us__form-description{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .contact-us__form-input{
+        padding: 0 10px;
+    }
+    .contact-us__form-input--textarea{
+        padding: 10px;
+    }
+}

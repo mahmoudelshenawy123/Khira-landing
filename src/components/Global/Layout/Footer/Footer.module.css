@@ -1,0 +1,123 @@
+
+/************************footer*************************************************/
+footer{
+    padding: 60px 0 0; 
+}
+.footer__container{
+    padding: 30px 0;
+    border-bottom: .5px solid #d6d6d6;
+    border-top: .5px solid #d6d6d6;
+    /* margin-bottom: 30px; */
+}
+.footer__links-cont{
+    text-align: start;
+}
+.footer__section-title{
+    font-size:18px;
+    color: var(--text-color);
+    font-family:'RobotoBold';
+    letter-spacing:2px;
+    margin-bottom: 15px;
+    text-align: start;
+}
+.footer__links-link{
+    margin-bottom: 32px;
+    font-size: 15.96px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+.footer__links-link:hover{
+    color: var(--text-color);
+}
+.footer__description{
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    width: 80%;
+}
+.footer__copyright{
+    padding: 10px 0
+}
+.footer__img{
+    display:flex;
+    width: 200px;
+    margin: auto;
+}
+.footer__links-li{
+    margin-bottom: 5px;
+}
+.footer__section-icon{
+    /* margin-right: 15px; */
+    width: 25px;
+    height: 25px;
+}
+.footer__section-icon path{
+    fill: var(--text-color);
+}
+/* body[dir='rtl'] .footer__section-icon{ */
+    /* margin-right: initial; */
+    /* margin-left: 15px; */
+/* } */
+.footer__section-item{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.footer__section-item:last-of-type{
+    margin-bottom: 91px;
+}
+.footer__section-item-link{
+    color: var(--text-color);
+    background-color:transparent;
+    padding:0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.footer__section-item-link:hover{
+    color: var(--text-color);
+}
+.footer-link__social-wrapper{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 39px;
+}
+.footer__text{
+    text-align: center;
+    color:var(--text-color);
+    font-size:15px;
+    font-family: 'CaiorSemiBold';
+}
+.footer__logo{
+    width: 100px;
+}
+@media (max-width:991px) {
+    /* .footer__copyright{
+        margin-bottom: 53px
+    } */
+    .footer__description{
+        width: 100%;
+    }
+}
+@media (max-width:586px) {
+    .footer__section-title{
+        margin-top: 10px;
+    }
+    .footer__container{
+        padding: 13px 0;
+    }
+    footer{
+        padding: 0px 0 0; 
+        margin-bottom: 70px;
+    }
+    /* .footer__copyright{
+        padding: 25px 0
+    } */
+    .footer__links-cont{
+        display: none;
+    }
+    .footer__section-wrapper{
+        padding: 0 30px;
+    }
+}

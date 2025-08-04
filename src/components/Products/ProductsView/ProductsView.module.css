@@ -1,0 +1,80 @@
+.products__view{
+    display: flex;
+    align-items: center;
+    padding: 15px 0
+}
+.products__view-filter{
+    color: #888888;
+    margin-right: 20px;
+    padding: 0 10px;
+    border-color: #888888;
+    width: 170px;
+    height:30px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    display:flex;
+    outline: none;
+    background-color:var(--main-background-color)
+}
+.products__view--card-type-button{
+    background-color: transparent;
+    color:var(--text-color)
+}
+.products__view--card-type-icon{
+    width: 20px;
+    height: 20px;
+}
+.products__view-number-wrapper{
+    margin-left: auto;
+}
+body[dir='rtl'] .products__view-number-wrapper{
+    margin-left: initial;
+    margin-right: auto;
+}
+.products__view-number-label{
+    margin-right: 20px;
+    color: var(--text-color);
+    font-size: 14px;
+}
+body[dir='rtl'] .products__view-number-label{
+    margin-right: 0px;
+    margin-left: 20px;
+}
+.products__view-number{
+    width: 75px;
+    color: #888888;
+    padding: 0 10px;
+    border-color: #888888;
+    height:30px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    outline: none;
+    background-color:var(--main-background-color)
+}
+@media(max-width:426px){
+    .products__view{
+        justify-content: space-between;
+    }
+    .products__view-filter{
+        width: 140px;
+        margin-right: 0px;
+        font-size: 14px;
+    }
+    body[dir='rtl'] .products__view-filter{
+        margin-left: initial;
+        margin-right: initial;
+    }
+    .products__view-number-wrapper{
+        margin-left: initial;
+    }
+    body[dir='rtl'] .products__view-number-wrapper{
+        margin-left: initial;
+        margin-right: initial;
+    }
+    .products__view-number{
+        width: 55px;
+    }
+    .products__view-number-label{
+        display: none;
+    }
+}

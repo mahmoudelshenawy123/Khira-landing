@@ -1,0 +1,5 @@
+.side-navbar__nav-item a.active{
+    /* background: linear-gradient(270deg, rgb(250, 251, 191) 12%, rgba(182,138,53,1) 77%); */
+    background: var(--text-color);
+    color: var(--main-background-color)!important;
+}

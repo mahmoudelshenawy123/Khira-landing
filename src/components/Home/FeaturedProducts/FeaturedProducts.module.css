@@ -1,0 +1,15 @@
+
+
+.featured-products__title{
+    color: var(--text-color);
+    font-size: 25px;
+    font-family: 'RobotoBold';
+    margin-bottom:40px;
+    text-align: center;
+}
+
+@media (max-width:600px) {
+    .featured-products__title{
+        margin-top: 30px;
+    }
+}

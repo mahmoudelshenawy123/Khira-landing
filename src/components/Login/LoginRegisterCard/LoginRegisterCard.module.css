@@ -1,0 +1,142 @@
+.login__input-wrapper{
+    margin-bottom: 25px;
+
+}
+.login__card{
+    padding:35px;
+    border: 1px solid #e1e1e1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.login__card-title{
+    font-size: 24px;
+    font-family: 'RobotoBold';
+    margin-bottom: 24px;
+    color:var(--text-color)
+}
+.login__card-form{
+    display: flex;
+    flex-direction: column;
+    height: -webkit-fill-available;
+}
+.login__input-label{
+    font-size: 14px;
+    color:var(--text-color);
+    font-family: 'RobotoLight';
+    margin-bottom: 5px;
+}
+.login__input{
+    width: 100%;
+    height: 35px;
+    padding: 0 17px;
+    border: 1px solid #e1e1e1;
+    
+}
+.login__input-remeber-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.login__input-remeber-check-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.login__input-check{
+    width: 13px;
+    height: 13px;
+}
+.login__input-check-label{
+    font-size: 14px;
+    color:var(--text-color);
+    font-family: 'RobotoLight';
+    margin: 0;
+}
+.login__input-lost-password{
+    font-size: 14px;
+    color:var(--text-color);
+    font-family: 'RobotoLight';
+    text-decoration: underline;
+}
+.login__input-lost-password:hover{
+    color:var(--text-color);
+}
+.login__submit{
+    width: 100%;
+    background-color: var(--text-color);
+    color: var(--main-background-color);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    transition: var(--transition);
+}
+.login__submit:hover{
+    opacity: .7;
+}
+.login__descritption{
+    font-size: 14px;
+    color:var(--text-color);
+    font-family: 'RobotoLight';
+    margin-bottom: 20px;
+}
+
+.form__view-pass{
+    --size:13px;
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    top:calc(50% - var(--size)/2);
+    right: 15px;
+    z-index: 100;
+    cursor: pointer;
+    background-color:transparent;
+    border:0;
+    line-height: 0;
+}
+body[dir='rtl'] .form__view-pass{
+    right: initial;
+    left:15px;
+}
+.form__view-pass-icon{
+    width: var(--size);
+    height: var(--size);
+}
+.form__view-pass-icon path{
+    transition: var(--transition);
+    fill: #000000
+}
+.toggle-view-pass{
+    transform: translate(-22px, -22px);
+    transition: var(--transition);
+}
+@media (max-width:991px) {
+    .login__card{
+        width: 100%;
+    }
+}
+@media (max-width:375px) {
+    .login__card{
+        /* width: 100%; */
+        padding: 20px;
+    }
+    .login__input-remeber-wrapper{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .login__input{
+        margin-bottom: 15px;
+    }
+    .login__card-title{
+        margin-bottom: 15px;
+    }
+    .login__descritption{
+        margin-bottom: 15px;
+    }
+}

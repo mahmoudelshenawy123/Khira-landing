@@ -1,0 +1,4 @@
+.navbar__more-links-wrapper--open{
+    transform:translateY(0);
+    opacity: 1;
+}

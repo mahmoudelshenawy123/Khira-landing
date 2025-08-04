@@ -1,0 +1,211 @@
+.navbar{
+    background-color:var(--main-background-color);
+    padding: 0;
+    padding-top: 80px;
+    transition: var(--transition);
+}
+
+/* .navbar-top__wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+} */
+/* @media (max-width:991px) {
+    .navbar-top__wrapper{
+        justify-content:center;
+    }
+} */
+.navbar-top__language-button{
+    font-family: 'CairoSemiBold';
+    background-color: transparent;
+    font-size: 19px;
+}
+.navbar-top{
+    background-color: var(--main-background-color);
+    height: 80px;
+    border-bottom: .5px solid #d6d6d6;
+    padding: 15px 0;
+    position: fixed!important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+    box-shadow: 2px 0 12px 0 rgb(0 0 0 / 15%);
+}
+.navbar--fixed{
+    position: fixed!important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* background-color: #15110B; */
+}
+.navbar-top__language-button--active{
+    color: var(--main-color);
+    margin-right: 40px;
+}
+.navbar-top__language-wrapper{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.navbar-top__language-wrapper--responsive .navbar-top__language-button--active{
+    color: white;
+}
+.navbar-bottom{
+    padding: 5px 0;
+}
+.navbar__logo{
+    width: 110px;
+    margin: auto;
+}
+.navbar__logo--responsive{
+    transform: translateX(12%);
+}
+.navbar__menu-btn{
+    /* width: 45px; */
+    background-color: transparent;
+    color:var(--text-color);
+}
+.navbar__menu-btn-icon{
+    width: 22.5px;
+    height: 22.5px;
+}
+.navbar__menu-btn-icon path{
+    fill: var(--text-color);
+}
+/* body[dir='rtl'] .navbar__menu-btn{
+    transform: rotateY(180deg);
+} */
+.navbar__cart-button{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 0;
+}
+.navbar__cart-icon{
+    width: 20px;
+    height: 20px;
+}
+.navbar__cart-icon path{
+    fill: var(--text-color);
+}
+
+body[dir='rtl'] .navbar__cart-button{
+    margin-right: 0px;
+}
+.navbar__cart-number{
+    font-size: 10.5px;
+    color: var(--text-color);
+}
+.navbar__menu-items{
+    --marginEnd: 30px;
+    margin-right: var(--marginEnd);
+    padding: 0px;
+    height: inherit!important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    transition: var(--transition);
+    color: var(--text-color);
+}
+body[dir='rtl'] .navbar__menu-items{
+    margin-right: 0;
+    margin-left: var(--marginEnd);
+}
+.navbar__menu-items:last-of-type{
+    --marginEnd:0;
+}
+.navbar__menu-items a{
+    color: var(--text-color)!important;
+    transition: var(--transition);
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 73%;
+    min-width: fit-content;
+    text-align: center;
+    font-family: "RobotoLight";
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+/* .navbar__menu-items.active a{
+    color: white!important;
+}
+.navbar__menu-items:hover a{
+    color: white!important;
+} */
+.navbar__menu-items .navbar-menu-link::before{
+    --width:0px;
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    width:var(--width);
+    right: calc(50% - var(--width)/2);
+    height: 7px;
+    background-color: #E7E7E7;
+    transition: all .3s linear;
+}
+html[dir=rtl] .navbar__menu-items .navbar-menu-link::before{
+    left: calc(50% - var(--width)/2);
+}
+.navbar__menu-items--margin{
+    margin-left: auto!important;
+}
+body[dir='rtl'] .navbar__menu-items--margin{
+    margin-left: var(--marginEnd)!important;
+    margin-right: auto!important;
+}
+.navbar__menu-items-dark-mode-button{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.navbar__menu-items-dark-mode-icon{
+    width: 22px;
+    height: 22px;
+}
+.navbar__menu-items-dark-mode-icon path{
+    fill:var(--text-color)
+}
+@media (max-width:992px){
+    .navbar{
+        padding-top: 50px;
+    }
+    .navbar-top{
+        height: 50px;
+    }
+    .navbar__register-btn{
+        max-width: 100%;
+        width:100%
+    }
+    .navbar__register-btn{
+        max-width: 100%;
+        width:100%
+    }
+    .navbar__search-form.active{
+        top: 65%;
+        width: 90%;
+        right: 0;
+    }
+    .nav-item{
+        margin-bottom: 20px;
+    }
+    .navbar-top__language-button--active{
+        margin-right: 0;
+    }
+    .navbar-bottom{
+        display: none;
+    }
+    .navbar__logo{
+        width: 60px;
+    }
+}
