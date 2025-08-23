@@ -1,30 +1,31 @@
 import React, { useEffect } from 'react'
-import styles from './FeaturedProducts.module.css'
+import styles from './Categories.module.css'
 import slider from 'assets/imgs/Slider.jpeg'
 import { useTranslation } from 'react-i18next'
 import { Col, Container, Row } from 'react-bootstrap'
 import ProductItemCard from 'components/Global/Elements/ProductItemCard/ProductItemCard'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
-function FeaturedProducts() {
+import CategoryItemCard from 'components/Global/Elements/CategoryItemCard/CategoryItemCard'
+function CategoriesSection() {
     const {t} =useTranslation()
     const selector = useSelector(state=>state?.GlobalReducer)
-    const [products ,setProducts] = useState([])
+    const [categories ,setCategories] = useState([])
 
     useEffect(()=>{
-      setProducts(selector?.products)
+      setCategories(selector?.categories)
     },[selector])
   return (
     <section className={styles['featured-products']}>
       <Container>
         <h2 src={slider} className={styles['featured-products__title']}>
-          {t('FEATURED PRODUCTS')}
+          {t('Categories')}
         </h2>
         <Row>
           {
-            products.length!=0 && products?.map((product, index)=>(
-              index < 6 &&<Col lg='4' md='6' xs='6' key={product?.id} className='mx-auto'>
-                <ProductItemCard product={product}/>
+            categories.length!=0 && categories?.map((category, index)=>(
+              index < 6 &&<Col lg='4' md='6' xs='6' key={category?.id} className='mx-auto'>
+                <CategoryItemCard key={category.id} category={category} />
               </Col>
             ))
           }
@@ -34,4 +35,4 @@ function FeaturedProducts() {
   )
 }
 
-export default FeaturedProducts
+export default CategoriesSection

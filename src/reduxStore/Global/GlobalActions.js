@@ -1,4 +1,4 @@
-import { CHANGE_CART_ITEMS, CHANGE_LANGUAGE, CHANGE_PRODUCTS, CHANGE_SETTINGS, CHANGE_TOKEN, CHANGE_USER_DETAILS } from './GlobalActionsTypes' 
+import { CHANGE_CART_ITEMS, CHANGE_CATEGORIES, CHANGE_LANGUAGE, CHANGE_PRODUCTS, CHANGE_SETTINGS, CHANGE_TOKEN, CHANGE_USER_DETAILS } from './GlobalActionsTypes' 
 
 
 export const changeLanguageAction = (code)=>{
@@ -12,6 +12,13 @@ export const changeProductsAction = (products)=>{
     return{
         type:CHANGE_PRODUCTS,
         products:products
+    }
+}
+
+export const changeCategoriesAction = (categories)=>{
+    return{
+        type:CHANGE_CATEGORIES,
+        categories:categories
     }
 }
 

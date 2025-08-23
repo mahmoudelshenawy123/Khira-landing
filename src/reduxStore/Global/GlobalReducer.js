@@ -1,11 +1,12 @@
 import Cookies from "js-cookie"
-import { CHANGE_CART_ITEMS, CHANGE_LANGUAGE, CHANGE_PRODUCTS, CHANGE_SETTINGS, CHANGE_TOKEN, CHANGE_USER_DETAILS } from "./GlobalActionsTypes"
+import { CHANGE_CART_ITEMS, CHANGE_CATEGORIES, CHANGE_LANGUAGE, CHANGE_PRODUCTS, CHANGE_SETTINGS, CHANGE_TOKEN, CHANGE_USER_DETAILS } from "./GlobalActionsTypes"
 
 const initialState = {
     lang:'en',
     token:Cookies.get('token'),
     isLogged:Cookies.get('token')?true:false,
     products:[],
+    categories:[],
     cart:{
         product:[],
         total_price:0,
@@ -27,6 +28,12 @@ const GlobalReducer = (state = initialState ,action)=>{
             return {
                 ...state,
                 products:action.products,
+            }
+        }
+        case CHANGE_CATEGORIES :{
+            return {
+                ...state,
+                categories:action.categories,
             }
         }
         case CHANGE_TOKEN :{

@@ -26,7 +26,7 @@ import AddEditBillingAddressWrapper from 'components/Account/AddEditBillingAddre
 import AddEditShippingAddressWrapper from 'components/Account/AddEditShippingAddressWrapper/AddEditShippingAddressWrapper';
 import EditAccountWrapper from 'components/Account/EditAccountWrapper/EditAccountWrapper';
 import { axiosConfig } from 'utils/axiosConfig';
-import { changeCartItems, changeProductsAction, changeSettings, changeTokenAction, changeUserDetails } from 'reduxStore/Global/GlobalActions';
+import { changeCartItems, changeCategoriesAction, changeProductsAction, changeSettings, changeTokenAction, changeUserDetails } from 'reduxStore/Global/GlobalActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 import { v4 as uuidv4 } from 'uuid';
@@ -36,6 +36,7 @@ import Authed from 'utils/Authed';
 import RecievedOrder from 'views/RecievedOrder/RecievedOrder';
 import PaymentView from 'views/Payment/PaymentView';
 import TermsAndConditions from 'views/TermsAndConditions/TermsAndConditions';
+import Categories from 'views/Categories/Categories';
 // import AddEditAddressWrapper from 'components/Account/AddEditBillingAddressWrapper/AddEditBillingAddressWrapper';
 function AnimatedRoutes() {
     const location = useLocation()
@@ -57,6 +58,14 @@ function AnimatedRoutes() {
     function getAllProducts(){
       axiosConfig.get('/product/all-products').then(res=>{
         dispatch(changeProductsAction(res.data.data))
+      }).catch(error=>{
+        console.log(error.response)
+      })
+    }
+    
+    function getAllCategories(){
+      axiosConfig.get('/category/all-categories').then(res=>{
+        dispatch(changeCategoriesAction(res.data.data))
       }).catch(error=>{
         console.log(error.response)
       })
@@ -120,6 +129,7 @@ function AnimatedRoutes() {
   },[])
   useEffect(()=>{
     getAllProducts()
+    getAllCategories()
     getCartItems()
     getSettings()
     getUserDetails()
@@ -161,6 +171,7 @@ function AnimatedRoutes() {
                   <Route path='/reset-password' element={<NotAuthed><ResetPassword/></NotAuthed>}></Route>
                   <Route path='/receive-order' element={<RecievedOrder/>}></Route>
                   <Route path='/terms' element={<TermsAndConditions/>}></Route>
+                  <Route path='/categories' element={<Categories/>}></Route>
                   
                   
                   <Route path="my-account" element={<Authed><Account/></Authed>}>

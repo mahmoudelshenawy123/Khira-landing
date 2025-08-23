@@ -9,6 +9,7 @@ import Uplifts from 'components/Home/Uplifts/Uplifts'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import CategoriesSection from 'components/Home/Categories/Categories'
 
 function Home() {
   const {t} =useTranslation()
@@ -24,6 +25,7 @@ function Home() {
         </MetaTags>
         <Header/>
         <Descrption/>
+        <CategoriesSection/>
         <FeaturedProducts/>
         <Uplifts/>
     </motion.div>

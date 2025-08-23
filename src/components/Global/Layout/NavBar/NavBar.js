@@ -77,6 +77,9 @@ function NavBar({toggleSideNavBar,isNavbarFixed}) {
                                     <NavLink to='/' className={`${styles['navbar-menu-link']} nav-link`}>{t('Home')}</NavLink>
                                 </li>
                                 <li className={`${styles["navbar__menu-items"]} nav-item`}>
+                                    <NavLink to='/categories' className={`${styles['navbar-menu-link']} nav-link`}>{t('Categories')}</NavLink>
+                                </li>
+                                <li className={`${styles["navbar__menu-items"]} nav-item`}>
                                     <NavLink to='/products' className={`${styles['navbar-menu-link']} nav-link`}>{t('Product')}</NavLink>
                                 </li>
                                 <li className={`${styles["navbar__menu-items"]} nav-item`}>

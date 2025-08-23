@@ -10,15 +10,20 @@ import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import ProductItemCardList from 'components/Global/Elements/ProductItemCardList/ProductItemCardList'
+import { useParams, useLocation, useSearchParams } from 'react-router-dom'
 
 function ProductsView() {
     const {t} =useTranslation()
     const selector = useSelector(state=>state?.GlobalReducer)
     const [products ,setProducts] = useState([])
+    const [filteredProducts ,setFilteredProducts] = useState([])
+    const [categories ,setCategories] = useState([])
     const [productsView ,setProductsView] = useState('grid')
+    const [selectedCategory, setSelectedCategory] = useState(null)
 
     useEffect(()=>{
       setProducts(selector?.products)
+      setCategories(selector?.categories)
     },[selector])
     function toggleViewElements(type){
       localStorage.setItem('productView',type)
@@ -27,15 +32,44 @@ function ProductsView() {
     useEffect(()=>{
       setProductsView((localStorage.getItem('productView'))||'grid')
     },[])
+    const [searchParams] = useSearchParams()
+    const location = useLocation()
+
+    useEffect(() => {
+      const category_id = searchParams.get('category_id')
+      setSelectedCategory(category_id)
+    }, [searchParams])
+    function handleCategoryChange(e) {
+      const value = e.target.value
+      setSelectedCategory(value === 'all' ? null : value)
+    }
+    useEffect(() => {
+      const filteredProducts = selectedCategory
+        ? products.filter(p => p.category_id == selectedCategory)
+        : products
+      setFilteredProducts(filteredProducts)
+    }, [selectedCategory])
   return (
     <section className={styles['products']}>
         <div className={styles['products__view']}>
-          <select className={styles['products__view-filter']}>
+          {/* <select className={styles['products__view-filter']}>
             <option>{t('Default Sorting')}</option>
             <option>{t("Sort by popularity")}</option>
             <option>{t("Sort by latest")}</option>
             <option>{t("Sort by price: low to high")}</option>
             <option>{t("Sort by price: high to low")}</option>
+          </select> */}
+          <select className={styles['products__view-filter']} value={selectedCategory} onChange={handleCategoryChange}>
+            <option value=''>{t('All Categories')}</option>
+            {
+              categories.map(cat => (
+                <option key={cat.id} value={cat.id}>{t(cat.title)}</option>
+              ))
+            }
+            {/* <option>{t("Sort by popularity")}</option>
+            <option>{t("Sort by latest")}</option>
+            <option>{t("Sort by price: low to high")}</option>
+            <option>{t("Sort by price: high to low")}</option> */}
           </select>
 
           <div className={styles['products__view-card-type']}>
@@ -59,13 +93,13 @@ function ProductsView() {
         <Row>
           {
             productsView=='grid'?
-              products.length!=0 && products?.map((product)=>(
+              filteredProducts.length!=0 && filteredProducts?.map((product)=>(
                 <Col lg='3' md='4' xs='6' key={product?.id} className='mx-auto'>
                   <ProductItemCard product={product}/>
                 </Col>
               ))
               :
-              products.length!=0 && products?.map((product)=>(
+              filteredProducts.length!=0 && filteredProducts?.map((product)=>(
                 <Col lg='6' sm='6' xs='12' key={product?.id} className='mx-auto'>
                   <ProductItemCardList product={product}/>
                 </Col>
