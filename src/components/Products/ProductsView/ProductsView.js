@@ -19,7 +19,7 @@ function ProductsView() {
     const [filteredProducts ,setFilteredProducts] = useState([])
     const [categories ,setCategories] = useState([])
     const [productsView ,setProductsView] = useState('grid')
-    const [selectedCategory, setSelectedCategory] = useState(null)
+    const [selectedCategory, setSelectedCategory] = useState('')
 
     useEffect(()=>{
       setProducts(selector?.products)
@@ -37,7 +37,7 @@ function ProductsView() {
 
     useEffect(() => {
       const category_id = searchParams.get('category_id')
-      setSelectedCategory(category_id)
+      category_id && setSelectedCategory(category_id)
     }, [searchParams])
     function handleCategoryChange(e) {
       const value = e.target.value
@@ -48,7 +48,7 @@ function ProductsView() {
         ? products.filter(p => p.category_id == selectedCategory)
         : products
       setFilteredProducts(filteredProducts)
-    }, [selectedCategory])
+    }, [selectedCategory, products])
   return (
     <section className={styles['products']}>
         <div className={styles['products__view']}>
