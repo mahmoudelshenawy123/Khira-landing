@@ -23,6 +23,9 @@ function SideBar({isSideBarVisible,toggleSideNavBar}) {
                     <NavLink to='/' className={styles["side-navbar__nav-link"]}>{t('Home')}</NavLink>
                 </li>
                 <li className={`${styles["side-navbar__nav-item"]} side-navbar__nav-item`}>
+                    <NavLink to='/categories' className={styles["side-navbar__nav-link"]}>{t('Categories')}</NavLink>
+                </li>
+                <li className={`${styles["side-navbar__nav-item"]} side-navbar__nav-item`}>
                     <NavLink to='/products' className={styles["side-navbar__nav-link"]}>{t('Prooducts')}</NavLink>
                 </li>
                 <li className={`${styles["side-navbar__nav-item"]} side-navbar__nav-item`}>
