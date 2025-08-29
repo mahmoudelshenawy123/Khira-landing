@@ -24,7 +24,8 @@ function BillingAddressWrapper({data ,handleChange ,errors}) {
         <div className={styles['add-item__input-wrapper']}>
           <p className={styles['add-item__input-label']}>
             {t('Country / Region')} *
-            <span className={styles['add-item__input-label--span']}>{t('United Arab Emirates')}</span>
+            {/* <span className={styles['add-item__input-label--span']}>{t('United Arab Emirates')}</span> */}
+            <span className={styles['add-item__input-label--span']}>{t('Egypt')}</span>
           </p>
         </div>
         <div className={styles['add-item__input-wrapper']}>

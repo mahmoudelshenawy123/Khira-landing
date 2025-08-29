@@ -12,6 +12,7 @@ import { axiosConfig } from 'utils/axiosConfig'
 import { changeCartItems } from 'reduxStore/Global/GlobalActions'
 import LoadingElement from 'components/Global/Elements/LoadingElement/LoadingElement'
 import { useState } from 'react'
+import swal from 'sweetalert'
 function ShoppingCartTable() {
   const {t} =useTranslation()
   const selector = useSelector(state=>state?.GlobalReducer)
@@ -49,6 +50,7 @@ function ShoppingCartTable() {
     
   function handleChangeQuantity(type,id){
     let modifiedProducts = [...products]
+    
     modifiedProducts = modifiedProducts.map(product=>{
 
       if(product?.id == id){
@@ -57,7 +59,12 @@ function ShoppingCartTable() {
             product['quantity'] --
           }
         }else{
+          if(product?.quantity + 1 > 3) {
+            swal("Error!", t(`You can't add more than 3 items of the same size At The Cart`), "error")
+            // return
+          } else {
             product['quantity'] ++
+          }
         }
       }
       return product

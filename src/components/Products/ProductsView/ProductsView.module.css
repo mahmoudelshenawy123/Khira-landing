@@ -16,6 +16,9 @@
     outline: none;
     background-color:var(--main-background-color)
 }
+.products__view-filter option {
+    text-transform: capitalize; 
+}
 .products__view--card-type-button{
     background-color: transparent;
     color:var(--text-color)

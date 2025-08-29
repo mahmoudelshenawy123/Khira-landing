@@ -18,7 +18,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import swal from 'sweetalert'
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -42,6 +42,14 @@ function ProductDetailsContent({item,isLoaded}) {
   const selectRef = useRef(null)
   const dispatch = useDispatch()
   const selector = useSelector(state=>state?.GlobalReducer)
+
+  const [products , setProducts] = useState([])
+
+  useEffect(()=>{
+    setProducts(selector?.cart?.product)
+  },[selector])
+
+
   const [quantity,setQuantity] = useState(1)
   const [isloading,setIsloading] = useState(false)
   const [isAddedSuccessfully,setIsAddedSuccessfully] = useState(false)
@@ -53,7 +61,9 @@ function ProductDetailsContent({item,isLoaded}) {
   const [sendReciept,setSendReciept] = useState(false)
   const [sendGreetingCard,setSendGreetingCard] = useState(false)
   const [greetingCard,setGreetingCard] = useState('')
+  const [productPriceBefore,setProductPriceBefore] = useState(300)
   const [productPrice,setProductPrice] = useState(300)
+  const [productQuantity,setProductQuantity] = useState(1)
   const [productSize,setProductSize] = useState('')
   const [images,setImages]=useState([])
   const [activeIimageIndex,setActiveImageIndex]=useState(0)
@@ -91,7 +101,12 @@ function ProductDetailsContent({item,isLoaded}) {
     if(type=='prev'){
       quantity>1&&  setQuantity(prevValue=>prevValue-1)
     }else{
-      setQuantity(prevValue=> prevValue+1)
+      if (quantity < productQuantity) {
+        setQuantity(prevValue=> prevValue+1)
+      } else {
+        swal("Error!", t(`You can't add more than available quantity`), "error")
+
+      }
     }
   }
 
@@ -104,15 +119,24 @@ function ProductDetailsContent({item,isLoaded}) {
     setWrapAsGift(prevVal=>!prevVal)
   }
 
-  function handleChangeProductSize(value){
+  function handleChangeProductSize(value, price, quantity, priceBefore){
+    setQuantity(1)
     if(value){
-      setProductPrice(Number(selectRef.current[selectRef.current.selectedIndex]?.dataset?.price))
+      setProductPrice(price)
+      setProductPriceBefore(priceBefore)
+      setProductQuantity(quantity)
     }
     setProductSize(value)
   }
 
   function addProductToCart(){
+    const selectedProdctSize = products?.find(product=>product?.selected_size?._id === productSize)
+    if(selectedProdctSize?.quantity + quantity > 3) {
+      swal("Error!", t(`You can't add more than 3 items of the same size At The Cart`), "error")
+      return
+    }
     setIsloading(true)
+
     let addedData={
       product_id:item?.product?.id,
       quantity:quantity,
@@ -150,10 +174,13 @@ function ProductDetailsContent({item,isLoaded}) {
 
       setImages([item?.product?.image,...item?.product?.images])
       if(item?.product?.sizes?.length){
+        setProductPriceBefore(item?.product?.sizes?.[0]?.price_before_discount)
         setProductPrice(item?.product?.sizes?.[0]?.price)
+        setProductQuantity(item?.product?.sizes?.[0]?.quantity)
         setProductSize(item?.product?.sizes?.[0]?.id)
       }else{
         setProductPrice(item?.product?.price)
+        setProductPriceBefore(item?.product?.price_before_discount)
       }
       setNextProduct(item?.next_product)
       setPreviousProduct(item?.previous_product)
@@ -174,7 +201,8 @@ function ProductDetailsContent({item,isLoaded}) {
         />
       )}
       <Container>
-        <BreadCrumb text={t('THE MYSTIQUE')}/>
+        {/* <BreadCrumb text={t('THE MYSTIQUE')}/> */}
+        <BreadCrumb text={item?.product?.category?.title} categoryId={item?.product?.category?.id}/>
         <AnotherProductNavigation previousProduct={previousProduct} nextProduct={nextProduct}/>
         {isAddedSuccessfully && 
           <SuccessRequestPopup 
@@ -257,10 +285,11 @@ function ProductDetailsContent({item,isLoaded}) {
                 <div className={styles['product-details__content']}>
                   <h1 className={styles['product-details__title']}>{item?.product?.title}</h1>
                   <p className={styles['product-details__price']}>{(productPrice) *quantity} {t('EGP')}</p>
+                  <p className={styles['product-details__price-before']}>{(productPriceBefore * quantity)} {t('EGP')}</p>
 
-                  {
+                  {/* {
                     item?.product?.sizes.length!=0 &&
-                    <div className={styles['product-details__size-wrapper']}>
+                    <div className={`${styles['product-details__size-wrapper']}`}>
                       <label className={styles['product-details__size-label']}>{t('Size')}</label>
                       <div className={styles['product-details__size-input-wrapper']}>
                         <select 
@@ -271,13 +300,47 @@ function ProductDetailsContent({item,isLoaded}) {
                         >
                           {
                             item?.product?.sizes?.map(size=>(
-                            <option value={size?.id} data-price={size?.price}>{size?.title}</option>
+                            <option value={size?.id} data-price={size?.price} data-quantity={size?.quantity}>{size?.title}</option>
                             ))
                           }
                         </select>
                       </div>
                     </div>
-                    }
+                  } */}
+                  {
+                    item?.product?.sizes?.length != 0 &&
+                    <div className={styles['product-details__size-wrapper']}>
+                      <label className={styles['product-details__size-label']}>{t('Colors')}</label>
+                      <div className={styles['product-details__size-images-wrapper']}>
+                        {
+                          item?.product?.sizes?.map((size) => (
+                            <div 
+                              key={size?.id} 
+                              className={`
+                                ${styles['product-details__size-card']} 
+                                ${String(productSize) === String(size?.id) ? styles['active'] : ''} 
+                                ${size?.quantity == 0 ? styles['disabled'] : ''}
+                              `}
+                              onClick={() => handleChangeProductSize(size?.id, size?.price, size?.quantity, size?.price_before_discount)}
+                            >
+                              {/* صورة أو مجرد مربع بالعنوان */}
+                              <div className={styles['product-details__size-content']}>
+                                {size?.title}
+                              </div>
+
+                              {/* لو الكمية = 0 نعرض "Sold Out" */}
+                              {size?.quantity == 0 && (
+                                <div className={styles['sold-out-overlay']}>
+                                  {t('Sold Out')}
+                                </div>
+                              )}
+                            </div>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  }
+
 
                   {/* <div className={styles['product-details__option']}>
                     <input 
@@ -339,9 +402,13 @@ function ProductDetailsContent({item,isLoaded}) {
                   }
                 </div>
                 {
-                  item?.product?.description&&
+                  item?.product?.description &&
                   <div dangerouslySetInnerHTML={{__html: item?.product?.description}} className={styles['product-details__cart-desciption']}/>
                 }
+                <div className='d-flex mb-2'>
+                  <span className='text-danger fw-bold'>{t('Hurry Up!')}</span> 
+                  <p>{t('There Is Only Available')} <span className='fw-bold'>{productQuantity}</span> {t('In Stock')}</p>
+                </div>
                 <div className={styles['product-details__cart-wrapper']}>
                   <div className={styles['product-details__quantity-wrapper']}>
                     <button className={styles['product-details__quantity-button']} type='button' onClick={()=>{handleChangeQuantity('prev')}}>

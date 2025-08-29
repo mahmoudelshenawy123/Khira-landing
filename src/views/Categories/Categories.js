@@ -59,7 +59,7 @@ function Categories() {
                 onClick={() => goToCategory(cat.id)}
               >
                 <img src={cat.image} alt={cat.title} className={styles['category-img']} />
-                <h5 className="text-center mt-2">{t(cat.title)}</h5>
+                <h5 className="text-center mt-2 text-capitalize">{t(cat.title)}</h5>
               </div>
             </Col>
           ))}

@@ -67,10 +67,10 @@ function CheckOut() {
         errors = {...errors,billing_address:{...errors?.billing_address,email:t('Email Must Be Valid Email')}}
         status=false
     }
-    if(!phonePattern.test(modififedData?.billing_address?.phone)){
-        errors = {...errors,billing_address:{...errors?.billing_address,phone:t('Phone Must Start With 971')}}
-        status=false
-    }
+    // if(!phonePattern.test(modififedData?.billing_address?.phone)){
+    //     errors = {...errors,billing_address:{...errors?.billing_address,phone:t('Phone Must Start With 971')}}
+    //     status=false
+    // }
     if(!modififedData?.billing_address?.streetAddress){
         errors = {...errors,billing_address:{...errors?.billing_address,streetAddress:t('Street Address Is Required')}}
         status=false
