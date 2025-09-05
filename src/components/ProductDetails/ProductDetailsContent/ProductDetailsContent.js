@@ -285,7 +285,7 @@ function ProductDetailsContent({item,isLoaded}) {
                 <div className={styles['product-details__content']}>
                   <h1 className={styles['product-details__title']}>{item?.product?.title}</h1>
                   <p className={styles['product-details__price']}>{(productPrice) *quantity} {t('EGP')}</p>
-                  <p className={styles['product-details__price-before']}>{(productPriceBefore * quantity)} {t('EGP')}</p>
+                  {productPriceBefore && <p className={styles['product-details__price-before']}>{(productPriceBefore * quantity)} {t('EGP')}</p>}
 
                   {/* {
                     item?.product?.sizes.length!=0 &&
